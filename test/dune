@@ -1,0 +1,5 @@
+(tests
+ (names prc_test)
+ (libraries alcotest prc sklearn)
+ (modes native)
+ (preprocess (pps ppx_jane ppx_deriving.show)))
