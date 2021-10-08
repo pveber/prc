@@ -2,7 +2,7 @@
 (generate_opam_files true)
 
 (name prc)
-(source (github pveber/bistro))
+(source (github pveber/prc))
 (homepage "https://github.com/pveber/prc/")
 (bug_reports "https://github.com/pveber/prc/issues")
 (license CeCILL-B)

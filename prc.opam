@@ -34,4 +34,4 @@ build: [
     "@doc" {with-doc}
   ]
 ]
-dev-repo: "git+https://github.com/pveber/bistro.git"
+dev-repo: "git+https://github.com/pveber/prc.git"
