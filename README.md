@@ -3,7 +3,8 @@ prc library
 
 prc implements a few functions to compute
 [Precision-Recall](https://en.wikipedia.org/wiki/Precision_and_recall)
-curves, and their AUC (area under curve).
+curves, and their AUC (area under curve). The implementation is
+checked against [scikit-learn](https://scikit-learn.org/).
 
 ## Installation
 

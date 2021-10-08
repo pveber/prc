@@ -1,4 +1,5 @@
 (**
+Precision-Recall curve construction and AUC computation
 
 References:
 [1] The binormal assumption on precision-recall curves.
