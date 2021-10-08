@@ -18,6 +18,7 @@ depends: [
   "core_kernel"
   "gsl"
   "ocaml-r"
+  "ppx_jane"
   "sklearn" {with-test}
 ]
 build: [

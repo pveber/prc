@@ -47,8 +47,7 @@ let test_implementations ~gen ~n ~show ~equal f g () =
     if i < n then
       let x = gen rng in
       if not (equal (f x) (g x)) then (
-        sprintf "Implementations differ on %s" (show x)
-        |> Alcotest.fail
+        Alcotest.fail (sprintf "Implementations differ on %s" (show x))
       )
       else loop (i + 1)
   in

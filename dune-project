@@ -23,5 +23,6 @@ well as several methods to compute their AUC (area under curve)
      core_kernel
      gsl
      ocaml-r
+     ppx_jane
      (sklearn :with-test)
      ))
