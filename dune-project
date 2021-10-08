@@ -20,7 +20,7 @@ well as several methods to compute their AUC (area under curve)
   (tags (precision recall statistics machine-learning))
   (depends
      (alcotest :with-test)
-     core-kernel
+     core_kernel
      gsl
      ocaml-r
      (sklearn :with-test)

@@ -15,7 +15,7 @@ bug-reports: "https://github.com/pveber/prc/issues"
 depends: [
   "dune" {>= "2.4"}
   "alcotest" {with-test}
-  "core-kernel"
+  "core_kernel"
   "gsl"
   "ocaml-r"
   "sklearn" {with-test}
