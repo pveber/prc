@@ -22,9 +22,7 @@ well as several methods to compute their AUC (area under curve)
      (alcotest :with-test)
      (core_kernel (>= "v0.12.0"))
      (dune (>= "2.4"))
-     dune-configurator
      gsl
-     ocaml-r
      ppx_jane
      (ppx_deriving :with-test)
      (sklearn :with-test)
