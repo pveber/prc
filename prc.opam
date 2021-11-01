@@ -21,6 +21,9 @@ depends: [
   "ppx_deriving" {with-test}
   "sklearn" {with-test}
 ]
+depopts: [
+  "ocaml-r" {>= "v0.5.0"}
+]
 build: [
   ["dune" "subst"] {pinned}
   [

@@ -26,4 +26,6 @@ well as several methods to compute their AUC (area under curve)
      ppx_jane
      (ppx_deriving :with-test)
      (sklearn :with-test)
-     ))
+     )
+   (depopts
+     (ocaml-r (>= "v0.5.0"))))
