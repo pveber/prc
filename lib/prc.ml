@@ -16,6 +16,8 @@ let sigmoid x =
 
 type dataset = Dataset of (float * bool) list
 
+let n_pos (Dataset xs) = List.count xs ~f:(fun (_, b) -> b)
+
 let confusion_matrix_fold (Dataset d) ~init ~f =
   let xs = Array.of_list d in
   Array.sort xs ~compare:(fun (x, _) (y, _) -> Float.compare y x) ;

@@ -21,6 +21,9 @@ References:
 type dataset = Dataset of (float * bool) list
 (** Binary prediction scores with associated labels *)
 
+val n_pos : dataset -> int
+(** Number of positive items in the dataset *)
+
 val operating_points :
   dataset ->
   (float * float * float) list
