@@ -1,0 +1,5 @@
+(library
+  (name prc_demo)
+  (libraries prc ocaml-r.graphics)
+  (optional)
+  (preprocess (pps ppx_jane)))
