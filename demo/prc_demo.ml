@@ -43,6 +43,7 @@ module Check = struct
     let open OCamlR_base in
     let rng = Rng.(make (default ())) in
     let p = Binormal_model.make ~sigma_pos:sigma ~sigma_neg:sigma alpha in
+    let true_auc = Binormal_model.auc p in
     let samples = List.init 1_000 ~f:(fun _ -> Binormal_model.simulation ~n:sample_size rng p) in
     let compute f =
       List.map samples ~f
@@ -58,7 +59,8 @@ module Check = struct
         Some "average_precision", average_precision ;
       ]
     in
-    OCamlR_graphics.list_boxplot l
+    OCamlR_graphics.list_boxplot l ;
+    OCamlR_graphics.abline ~h:true_auc ~lty:`dashed ~col:"red" ~lwd:2 ()
 
   let discrete_simulation ?(sample_size = 30) ?support:(d = 10) ?(alpha = 0.1) () =
     let open OCamlR_base in
