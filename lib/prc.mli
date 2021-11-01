@@ -67,6 +67,11 @@ module Binormal_model : sig
     ?sigma_neg:float ->
     float ->
     t
+  (** [make ?mu_pos ?sigma_pos ?mu_neg ?sigma_neg alpha] is a
+     representation of the mixture of two Gaussian distributions of
+     means [mu_pos] and [mu_neg] resp. and standard deviation
+     [sigma_pos] and [sigma_neg] resp., while [alpha] is the
+     proportion of positive samples in the mixture. *)
 
   val simulation :
     Gsl.Rng.t ->
