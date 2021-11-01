@@ -148,9 +148,9 @@ let auc_average_precision (Dataset xs as d) =
   in
   sum /. float npos
 
-let logit_confidence_interval ~alpha ~theta_hat ~n =
+let logit_confidence_interval ~alpha ~theta_hat ~n_pos =
   let eta_hat = logit theta_hat in
-  let tau_hat = (float n *. theta_hat *. (1. -. theta_hat)) ** (-0.5) in
+  let tau_hat = (float n_pos *. theta_hat *. (1. -. theta_hat)) ** (-0.5) in
   let delta = tau_hat *. Cdf.gaussian_Pinv ~sigma:1. ~p:(1. -. alpha /. 2.) in
   sigmoid (eta_hat -. delta),
   sigmoid (eta_hat +. delta)

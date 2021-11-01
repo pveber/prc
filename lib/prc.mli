@@ -36,12 +36,12 @@ val auc_average_precision : dataset -> float
 val logit_confidence_interval :
   alpha:float ->
   theta_hat:float ->
-  n:int ->
+  n_pos:int ->
   float * float
-  (** [logit_confidence_interval ~alpha ~theta_hat ~n] computes an
-      asymptotically valid confidence interval at level 1 - [alpha],
-      when the estimate [theta_hat] was obtained from a sample of [n]
-      observations. *)
+(** [logit_confidence_interval ~alpha ~theta_hat ~n] computes an
+   asymptotically valid confidence interval at level 1 - [alpha], when
+   the estimate [theta_hat] was obtained from a sample with [n_pos]
+   positive observations. *)
 
 (** Binormal model
 
