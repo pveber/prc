@@ -18,6 +18,27 @@ Latest commit
 opam pin add -y prc https://github.com/pveber/prc.git
 ```
 
+## Motivation
+
+Precision-Recall curves are a useful representation of the performance
+of binary classification methods in the case there are many negative
+items. Problem is they are difficult to estimate from a finite
+sample. As an illustration, compare the following graph obtained in
+a particular case where the true precision-recall curve can be
+computed analytically (so-called binormal model):
+
+![Empirical VS true precision-recall curves](img/true_vs_empirical_rp_curves.png)
+
+The red curve shows the "true" precision-recall curve while the grey
+ones are the empirical estimated obtained from samples of
+size 1000. We see that there is a lot of variability, particularly in
+the low-recall region.
+
+As a consequence, displaying a precision-recall curve can be
+misleading, and it is safer to report an estimate of its area under
+curve (AUC) along with a confidence interval. This is what this
+library provides.
+
 ## Quick test
 
 Demo code is available in the `demo` directory. To run it, simply
@@ -29,4 +50,5 @@ just type:
 # Prc_demo.Check.binormal_simulation ~sample_size:1000 ();;
 ```
 This yields:
-![demo](demo.png)
+
+![demo](img/estimators_sampling_distribution.png)

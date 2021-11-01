@@ -38,6 +38,26 @@ module Plot = struct
     List.(iter (rev curves)) ~f:plot_curve
 end
 
+let recall_precision_curve ?col ?lwd ?label dataset =
+  Prc.operating_points dataset
+  |> List.map ~f:(fun (_, recall, precision) -> recall, precision)
+  |> Array.of_list
+  |> Plot.lines ?col ?lwd ?label
+
+let curve_variability ?(sample_size = 1000) () =
+  let rng = Rng.(make (default ())) in
+  let alpha = 0.1 in
+  let p = Binormal_model.make alpha in
+  let samples = List.init 20 ~f:(fun _ -> Binormal_model.simulation ~n:sample_size rng p) in
+  let empirical_curves =
+    List.map samples ~f:(recall_precision_curve ~col:"grey")
+  in
+  let true_curve =
+    Binormal_model.curve ~n:100 p
+    |> Plot.lines ~col:"red" ~label:"True RP curve"
+  in
+  Plot.recall_precision_plot (true_curve :: empirical_curves)
+
 module Check = struct
   let binormal_simulation ?(sigma = 1.) ?(alpha = 0.1) ?(sample_size = 30) () =
     let open OCamlR_base in
