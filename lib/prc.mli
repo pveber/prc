@@ -46,6 +46,17 @@ val logit_confidence_interval :
    the estimate [theta_hat] was obtained from a sample with [n_pos]
    positive observations. *)
 
+val bootstrap_confidence_interval :
+  ?niter:int ->
+  alpha:float ->
+  Gsl.Rng.t ->
+  dataset ->
+  f:(dataset -> float) ->
+  (float * float)
+(** [bootstrap_confidence_interval ?niter ~alpha rng d ~f] computes a
+   bootstrap confidence interval at level 1 - [alpha] for the values
+   produces by [f], using [n_iter] bootstrap iterations. *)
+
 (** Binormal model
 
    A Gaussian mixture model for which the precision-recall curve can

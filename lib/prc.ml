@@ -157,6 +157,24 @@ let logit_confidence_interval ~alpha ~theta_hat ~n_pos =
   sigmoid (eta_hat -. delta),
   sigmoid (eta_hat +. delta)
 
+let resample_array rng xs =
+  let n = Array.length xs in
+  Array.map xs ~f:(fun _ ->
+      let k = Gsl.Rng.uniform_int rng n in
+      xs.(k)
+    )
+
+let bootstrap_confidence_interval ?(niter = 1000) ~alpha rng (Dataset xs) ~f =
+  let pos, neg = Array.partition_tf ~f:snd (Array.of_list xs) in
+  let resample rng =
+    let xs = Array.append (resample_array rng pos) (resample_array rng neg) in
+    Dataset (Array.to_list xs)
+  in
+  let vals = Array.init niter ~f:(fun _ -> f (resample rng)) in
+  Array.sort vals ~compare:Float.compare ;
+  let quantile = Gsl.Stats.quantile_from_sorted_data vals in
+  quantile (alpha /. 2.), quantile (1. -. alpha /. 2.)
+
 module Binormal_model = struct
   type t = {
     mu_pos : float ;
