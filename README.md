@@ -48,7 +48,9 @@ sampling distribution of several estimators under the binormal model,
 just type:
 ```ocaml
 # Prc_demo.estimator_sampling_distribution ~sample_size:1000 ();;
-``` This yields:
+```
+
+This yields:
 
 ![demo](img/estimators_sampling_distribution.png)
 
