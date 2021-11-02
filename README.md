@@ -43,12 +43,15 @@ library provides.
 
 Demo code is available in the `demo` directory. To run it, simply
 launch an interpreter via a `dune utop demo` command, and then call
-functions in `Prc_demo.Check`. For instance to get an overview of the
+functions in `Prc_demo`. For instance to get an overview of the
 sampling distribution of several estimators under the binormal model,
 just type:
 ```ocaml
-# Prc_demo.Check.binormal_simulation ~sample_size:1000 ();;
-```
-This yields:
+# Prc_demo.estimator_sampling_distribution ~sample_size:1000 ();;
+``` This yields:
 
 ![demo](img/estimators_sampling_distribution.png)
+
+where each boxplot represents the distribution of an estimator
+(resp. binormal, trapezoidal and average precision) for a binormal
+model when drawing finite samples of size 1000.

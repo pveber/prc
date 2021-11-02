@@ -1,8 +1,8 @@
-v0.1.0 2021-11-01 Villeurbanne
+v0.1.0 2021-11-02 Villeurbanne
 ------------------------------
 
 - documentation improvements
-- add a bootstrap procedure to compute confidence intervals
+- added bootstrap procedure to compute confidence intervals
 - added demo code to check the procedures perform ok.
 
 v0.0.0 2021-10-08 Maillezais
