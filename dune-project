@@ -27,5 +27,6 @@ well as several methods to compute their AUC (area under curve)
      (ppx_deriving :with-test)
      (sklearn :with-test)
      )
-   (depopts
-     (ocaml-r (>= "v0.5.0"))))
+   (depopts ocaml-r)
+   (conflicts
+     (ocaml-r (< "0.5.0"))))
